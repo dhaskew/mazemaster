@@ -56,23 +56,23 @@ def carve_passages_from(cx, cy, grid)
 
   # iterate thru each element in the directions array
   directions.each do |direction|
-    puts "direction:" + direction.to_s
-    puts "opposite:" + OPPOSITE[direction].to_s
+  # puts "direction:" + direction.to_s
+  # puts "opposite:" + OPPOSITE[direction].to_s
 	# nx = next x coordinate as represented by its grid location
 	# ny = next y coordinate as represented by its grid location
     nx, ny = cx + DX[direction], cy + DY[direction]
     
-	puts "nx:" + nx.to_s
-	puts "ny:" + nx.to_s
+	# puts "nx:" + nx.to_s
+	# puts "ny:" + nx.to_s
 	
 	# now we check that the next coordinate set is valid (on the maze) and hasn't yet been visited
     if ny.between?(0, grid.length-1) && nx.between?(0, grid[ny].length-1) && grid[ny][nx] == 0
       grid[cy][cx] |= direction
-	  puts grid
-	  puts "----------------------------"
-      grid[ny][nx] |= OPPOSITE[direction]
-	  puts grid
-	  puts "-----------------------------"
+	  # puts grid
+	  # puts "----------------------------"
+    #  grid[ny][nx] |= OPPOSITE[direction]
+	  # puts grid
+	  # puts "-----------------------------"
       carve_passages_from(nx, ny, grid)
     end
   end
@@ -104,4 +104,4 @@ end
 
 puts "#{$0} #{width} #{height} #{seed}"
 
-puts grid
+# puts grid
